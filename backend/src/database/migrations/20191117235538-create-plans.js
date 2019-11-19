@@ -13,12 +13,12 @@ module.exports = {
         unique: true,
       },
       duration: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false,
         unique: false,
       },
       price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false,
         unique: false,
       },
