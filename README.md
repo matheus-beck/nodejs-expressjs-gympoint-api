@@ -42,6 +42,11 @@ sudo docker run --name mongogym -p 27017:27017 -d -t mongo
 sudo docker run --name redisgym -p 6379:6379 -d -t redis:alpine
 ```
 
+You also have to create a database called 'gympoint' inside the PostgreSQL ([Here is an example using Postbird](https://matheus-beck.github.io/blog/docker/postgresql/postbird/sequelize/2019/09/11/configuring-postgres-docker-postbird-sequelize.html)) and create the tables using:
+```console
+yarn sequelize db:migrate
+```
+
 Finally, to run the server: 
 
 ```console
