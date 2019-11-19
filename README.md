@@ -58,3 +58,7 @@ And to run the mail queue:
 ```console
 yarn queue
 ```
+
+---
+
+Made with ❤️ and ☕ by Matheus Beck :wave: [Get in touch!](https://www.linkedin.com/in/matheus-beck/)
