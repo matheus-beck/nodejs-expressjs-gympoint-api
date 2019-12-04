@@ -6,7 +6,7 @@
 
 Full Stack app developed to make it easier to manage Gyms. The app is called **GymPoint** and it was developed using Node.js in the backend and React.js and it will use React.js and React Native in the frontend
 
-# Backend: Rest API using Node.js, Express.js, Docker, Redis, MongoDB and PostgreSQL
+# Backend: Rest API using Node.js, Express.js, Docker, Redis and PostgreSQL
 
 ## Dependencies used
 
@@ -59,4 +59,4 @@ yarn queue
 
 ---
 
-Made with ❤️ and ☕ by Matheus Beck :wave: [Get in touch!](https://www.linkedin.com/in/matheus-beck/)
+Made with ❤️ by Matheus Beck :wave: [Get in touch!](https://www.linkedin.com/in/matheus-beck/)
