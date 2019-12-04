@@ -4,13 +4,12 @@
   <img src="https://i.imgur.com/mxs3Ief.png" width="200">
 </h1>
 
-Full Stack app developed to make it easier to manage Gyms. The app is called **GymPoint** and it was developed using Node.js in the backend and React.js and React Native in the frontend
+Full Stack app developed to make it easier to manage Gyms. The app is called **GymPoint** and it was developed using Node.js in the backend and React.js and it will use React.js and React Native in the frontend
 
 # Backend: Rest API using Node.js, Express.js, Docker, Redis, MongoDB and PostgreSQL
 
 ## Dependencies used
 
-* "@sentry/node": Initialize the Sentry SDK and hook into the environment
 * "bcryptjs": Uses a password hashing function to store passwords on database
 * "bee-queue": A simple, fast, robust job/task queue for our mail sanding in Node.js
 * "date-fns": A date utility library used in the appointments
@@ -19,14 +18,12 @@ Full Stack app developed to make it easier to manage Gyms. The app is called **G
 * "express-async-errors": Handles async errors inside express
 * "express-handlebars": Handles handlebars templates inside express
 * "jsonwebtoken": An implementation of JSON Web Tokens
-* "mongoose": An elegant mongodb object modeling for node.js
 * "multer": Node.js middleware for handling multipart/form-data
 * "nodemailer": A module for Node.js applications to allow easy email sending
 * "nodemailer-express-handlebars": Express Handlebars plugin for Nodemailer
 * "pg": Non-blocking PostgreSQL client for Node.js
 * "pg-hstore": A node package for serializing and deserializing JSON data to hstore format
 * "sequelize": A promise-based Node.js ORM for Postgres
-* "youch": Pretty error reporting for Node.js
 * "yup": A JavaScript object schema validator and object parser
 
 ## Getting started
@@ -38,7 +35,6 @@ yarn install
 2. Now, run these three Docker containers in your machine:
 ```console
 sudo docker run --name gympoint -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
-sudo docker run --name mongogym -p 27017:27017 -d -t mongo
 sudo docker run --name redisgym -p 6379:6379 -d -t redis:alpine
 ```
 
