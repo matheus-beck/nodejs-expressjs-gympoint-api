@@ -57,6 +57,110 @@ yarn dev
 yarn queue
 ```
 
+## Sequelize Models
+
+#### User Model
+
+| Field         | Description                    | Type    | Allow Null |
+| ------------  | ------------------------------ | ------  | ---------- |
+| id            | user id                        | INTEGER |   False    |
+| name          | user name                      | STRING  |   False    |
+| email         | user email                     | STRING  |   False    |
+| password_hash | user password hash             | STRING  |   False    |
+| created_at    | creation date                  | DATE    |   False    |
+| updated_at    | update date                    | DATE    |   False    |
+
+#### Student Model
+
+| Field         | Description                       | Type    | Allow Null |
+| ------------  | --------------------------------- | ------  | ---------- |
+| id            | student id                        | INTEGER |   False    |
+| name          | student name                      | STRING  |   False    |
+| email         | student email                     | STRING  |   False    |
+| idade         | student age                       | INTEGER |   False    |
+| peso          | student weight                    | FLOAT   |   False    |
+| altura        | student height                    | FLOAT   |   False    |
+| created_at    | creation date                     | DATE    |   False    |
+| updated_at    | update date                       | DATE    |   False    |
+
+#### Plan Model
+
+| Field         | Description                    | Type    | Allow Null |
+| ------------  | ------------------------------ | ------  | ---------- |
+| id            | plan id                        | INTEGER |   False    |
+| title         | plan title                     | STRING  |   False    |
+| duration      | plan duration                  | INTEGER |   False    |
+| price         | plan price                     | FLOAT   |   False    |
+| created_at    | creation date                  | DATE    |   False    |
+| updated_at    | update date                    | DATE    |   False    |
+
+#### Help Order Model
+
+| Field         | Description                    | Type    | Allow Null |
+| ------------  | ------------------------------ | ------  | ---------- |
+| id            | help order id                  | INTEGER |   False    |
+| student_id    | student id                     | INTEGER |   False    |
+| question      | help order question            | STRING  |   False    |
+| answer        | help order answer              | STRING  |   True     |
+| answer_at     | answer date                    | DATE    |   True     |
+| created_at    | creation date                  | DATE    |   False    |
+| updated_at    | update date                    | DATE    |   False    |
+
+#### Checkin Model
+
+| Field         | Description                    | Type    | Allow Null |
+| ------------  | ------------------------------ | ------  | ---------- |
+| id            | help order id                  | INTEGER |   False    |
+| student_id    | student id                     | INTEGER |   False    |
+| created_at    | creation date                  | DATE    |   False    |
+| updated_at    | update date                    | DATE    |   False    |
+
+## Routes
+
+#### Sessions
+
+- `POST /sessions`: This route creates a session and requires a body like the following example: `{ "email": "admin@gympoint.com", "password": "123456" }`. This route also return to us a JWT (Jason Web Token) that has to be used in the following routes
+
+#### Students
+
+- `GET /students/:id/checkins`: This route lists all check-ins made by the student at the gym
+
+- `POST /students/:id/checkins`: This route creates an check-in by the student at the gym
+
+- `GET /students/:id/help-orders`: This route lists all help orders created by the student
+
+- `POST /students/:id/help-orders`: This route creates a help order to the gym and requires a body like the following example is passed: `{ "question": "How should I...?" }`
+
+- `POST /students`: This route creates an student (if the admin is logged in the system) and requires a body like the following example: `{ "name": "Matheus", "email": "test@email.com", "idade": "123456", "peso": 68.7, "altura": 1.73 }`
+
+- `PUT /students/:id`: This route updated an student (if the admin is logged in the system) and can update the fields like the following example: `{ "name": "Matheus", "email": "test@email.com", "idade": "123456", "peso": 68.7, "altura": 1.73 }`
+
+#### Plan
+
+- `GET /plans`: This route lists all plans registered at the gym
+
+- `POST /plans`: This route creates a new plan and requires a body like the following example: `{ "title": "Gold", "duration": "3", "price": 129.90 }`
+
+- `PUT /plans/:id`: This route updates the fields of the plan when passing a body like the following example: `{ "title": "Gold", "duration": "3", "price": 129.90 }`
+
+- `DELETE /plans/:id`: This route deletes a plan based on his ID
+
+#### Subscriptions
+
+- `GET /subscriptions`: This route lists all subscriptions registered at the gym
+
+- `POST /subscriptions`: This route creates a new subscription for a student and requires a body like the following example: `{ "student_id": 1, "plan_id": 2, "start_date": "2019-02-01T23:00:00-03:00" }`
+
+- `PUT /subscriptions/:id`: This route updates the fields of the subscription when passing a body like the following example: `{ "plan_id": 3, "start_date": "2019-05-01T23:00:00-03:00" }`
+
+- `DELETE /subscriptions/:id`: This route deletes a subscription based on his ID
+
+#### Help Orders
+
+- `GET /help/`: This route lists all help orders created by students that were not answered yet
+
+- `POST /help-orders/:id/answer`: This route answer a help order created by a client and send him a mail to notify him. It requires a body like the following example: `{ "answer": "You should..." }`
+
 ---
 
 Made with ❤️ by Matheus Beck :wave: [Get in touch!](https://www.linkedin.com/in/matheus-beck/)
